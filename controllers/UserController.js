@@ -1,18 +1,19 @@
-const userService = require('../services/UserService.js');
-const bcrypt = require('bcrypt')
+import userService from '../services/UserService.js'
+
+import bcrypt from 'bcrypt'
 
 const createUser = async (req, res) => { 
     const {senha, email, nome} = req.body
-    
+
     try { 
         if(!senha || !email || !nome){ 
             return res.status(400).send({message: 'Forneça todos os dados'})
         }
-        const emailExiste = await userService.emailExiste(req.body.email)
+        const emailExiste = await userService.emailExiste(email)
         if(emailExiste){
             return res.status(200).send({message: 'Este email já está cadastrado'})
         }
-        const hash = await bcrypt.hash(req.body.senha.toString(), 10) 
+        const hash = await bcrypt.hash(senha.toString(), 10) 
         const newUser = await userService.createUser({
                 nome: req.body.nome,
                 email: req.body.email,

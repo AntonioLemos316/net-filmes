@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
+
 require('dotenv').config()
 
 const verificarToken = (req, res, next) => {

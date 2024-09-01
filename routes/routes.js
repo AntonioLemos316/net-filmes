@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express'
+
 const router = express.Router();
 
 const userController = require('../controllers/UserController.js');
-
 const verificarToken = require('../middleware/token.js');
 
 router.post('/cadastrar', userController.createUser);

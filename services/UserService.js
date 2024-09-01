@@ -1,7 +1,6 @@
-const db = require('../db.js');
-const bcrypt = require('bcrypt')
-
-const jwt = require('jsonwebtoken')
+import db from '../db.js'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 const createUser = (user) => {
     return new Promise((resolve, reject) => {

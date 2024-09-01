@@ -1,12 +1,11 @@
 import mysql from 'mysql2'
-
-require('dotenv').config()
+import 'dotenv/config'
 
 const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'net_filmes' 
 })
 
 connection.connect((err) => {
@@ -17,4 +16,4 @@ connection.connect((err) => {
     console.log('Conectado ao BD')
 })
 
-module.exports = connection
+export default connection

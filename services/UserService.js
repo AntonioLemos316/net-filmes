@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 const createUser = (user) => {
     return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO users SET ?';
+        const sql = 'INSERT INTO Users SET ?';
         db.query(sql, user, (error, results) => {
             if (error) {
                 console.error('Erro ao inserir o usuário:', error);
@@ -15,22 +15,9 @@ const createUser = (user) => {
     });
 };
 
-const emailExiste = (email) => {
-    return new Promise((resolve, reject) => {
-        const sql = 'SELECT * FROM users WHERE email = ?';
-        db.query(sql, [email], (error, results) => {
-            if (error) {
-                console.error('Erro ao checar existência do email:', error);
-                return reject('Erro ao checar existência do email');
-            }
-            resolve(results.length > 0); 
-        });
-    });
-};
-
 const login = (email, senha) => {
     return new Promise((resolve, reject) => {
-        const sql = 'SELECT * FROM users WHERE email = ?';
+        const sql = 'SELECT * FROM Users WHERE email = ?';
         db.query(sql, [email], (error, results) => {
             if (error) {
                 console.error('Erro ao buscar usuário:', error);
@@ -63,4 +50,4 @@ const login = (email, senha) => {
     });
 };
 
-module.exports = { createUser, emailExiste, login };
+export default { createUser, login };

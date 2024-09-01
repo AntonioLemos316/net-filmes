@@ -3,22 +3,18 @@ import userService from '../services/UserService.js'
 import bcrypt from 'bcrypt'
 
 const createUser = async (req, res) => { 
-    const {senha, email, nome} = req.body
+    
+    const {nome, email, senha} = req.body
 
     try { 
-        if(!senha || !email || !nome){ 
+        if(!nome || !email || !senha){ 
             return res.status(400).send({message: 'Forneça todos os dados'})
-        }
-        const emailExiste = await userService.emailExiste(email)
-        if(emailExiste){
-            return res.status(200).send({message: 'Este email já está cadastrado'})
         }
         const hash = await bcrypt.hash(senha.toString(), 10) 
         const newUser = await userService.createUser({
                 nome: req.body.nome,
                 email: req.body.email,
-                senha: hash, // hash gerado com bcrypt
-                funcao: req.body.funcao = 'normal'
+                senha: hash // hash gerado com bcrypt
             })
         if(!newUser || newUser.length === 0){
             return res.status(500).send({message: 'Erro ao criar usuário'})
@@ -27,8 +23,7 @@ const createUser = async (req, res) => {
             message: 'Usuário criado com sucesso',
             newUser: {
                 nome: req.body.nome,
-                email: req.body.email,
-                funcao: req.body.funcao
+                email: req.body.email
             }
         }
         res.status(201).send({response})
@@ -39,7 +34,9 @@ const createUser = async (req, res) => {
 };
 
 const login = async (req, res) => {
+
     const { email, senha } = req.body;
+
     try {
         if (!email || !senha) {
             return res.status(400).send({ message: 'E-mail e senha são obrigatórios' });
@@ -70,4 +67,4 @@ const jwt = (req, res) => {
     });
 } 
 
-module.exports = { createUser, login,  jwt };
+export default { createUser, login,  jwt };

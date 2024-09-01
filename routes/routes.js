@@ -2,11 +2,11 @@ import express from 'express'
 
 const router = express.Router();
 
-const userController = require('../controllers/UserController.js');
-const verificarToken = require('../middleware/token.js');
+import userController from '../controllers/UserController.js'
+import verificarToken from '../middleware/token.js'
 
 router.post('/cadastrar', userController.createUser);
 router.post('/login', userController.login);
 router.get('/rota-protegida', verificarToken, userController.jwt);
 
-module.exports = router
+export default router

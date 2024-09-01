@@ -1,0 +1,133 @@
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-image: url(images/bg\ filmes\ 2.png);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 300px;
+  max-height: 500px;
+  margin: 50px auto;
+  background: linear-gradient(45deg, #3f605d, #4c1112);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(137, 175, 221, 0.1);
+  padding: 20px;
+  margin-top: 140px;
+}
+
+h3 {
+  color: #c7bfbf;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+label {
+  color: #c7bfbf;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ba8d8d;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.botao-enviar {
+  padding: 10px;
+  background-color: #aea9a98d;
+  color: #cecece;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.botao-enviar:hover {
+  background-color: rgb(76, 17, 18);
+}
+
+.botao-cadastro {
+  padding: 10px;
+  background-color: #aea9a98d;
+  color: #cecece;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.botao-cadastro:hover {
+  color: #4c1112;
+}
+
+.botao-cad {
+  padding: 10px;
+  background-color: #aea9a98d;
+  color: #cecece;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.botao-cad:hover {
+  color: #4c1112;
+}
+
+h5 {
+  text-align: center;
+  color: #050505;
+  cursor: pointer;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h5:hover {
+  color: #4c1112;
+}
+
+#mensagem {
+  margin-top: 20px;
+  padding: 5px 10px; /* Reduz o espaço interno do botão */
+  background-color: #aea9a9c2;
+  color: greenyellow; /* Cor do texto branco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px; /* Define a largura do botão */
+  height: 20px;
+}
+
+#erro {
+  background-color: #aea9a9c2;
+  color: red;
+}

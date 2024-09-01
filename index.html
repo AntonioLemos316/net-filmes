@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes Prime</title>
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Bem vindo(a)!</h3>
+        <form id="login-form">
+            <div class="input-container">
+                <label for="user">Email:</label>
+                <input type="text" id="user" placeholder="Digite seu email" required>
+            </div>
+            <div class="input-container">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" id="botaoEntrar" class="botao-enviar">Entrar</button>
+        </form>
+        <p class="btnEsquecer"> <a href="esquecer.html">Esqueceu a senha?</a>.</p>
+        <button id="btnCadastrar" class="botao-cadastro">Cadastrar</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var loginForm = document.getElementById("login-form");
+    
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Impede o envio padrão do formulário
+    
+                console.log('Formulário de login enviado');
+    
+                var email = document.getElementById("user").value;
+                var senha = document.getElementById("senha").value;
+    
+                fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, senha })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.message === 'Login bem-sucedido') {
+                            const token = data.userLogin.token
+                            localStorage.setItem('token', token)
+                            console.log('Redirecionando para home.html');
+                            setTimeout(() => {
+                                window.location.href = "./home.html";
+                            }, 2000);
+                        } else {
+                            alert("Senha incorreta! Por favor, tente novamente.");
+                            // Mostra uma mensagem de erro, por exemplo
+                            console.error("Erro ao fazer login:", data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro ao fazer login:", error);
+                    });
+            });
+    
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Esconde os botões de login e cadastro
+                document.getElementById('login-links').style.display = 'none';
+            }
+
+
+            document.getElementById("btnCadastrar").addEventListener("click", function() {
+                window.location.href = "cadastro.html"; // Redireciona para a página de cadastro
+            });
+
+        });
+    </script>
+</body>
+
+</html>

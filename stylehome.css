@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #000000, #333333);
+    color: #ffffff;
+}
+
+nav {
+    background-color: rgb(76, 17, 18);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+nav img {
+    height: 30px;
+}
+
+nav .login-links {
+    display: flex; 
+}
+
+nav .login-links a {
+    margin-right: 10px; 
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+.movies-section {
+    margin: 20px;
+    text-align: center;
+}
+
+/* .movie-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #333333;
+    border-radius: 10px;
+    transition: transform 0.3s;
+} */
+
+.movie-card img {
+    width: 200px; 
+    height: auto; 
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    margin-top: 10px;
+}
+
+.cart-icon {
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* .carousel-container {
+    overflow-x: auto;
+    white-space: nowrap;
+} */
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.movie-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #333333;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    width: auto; 
+    text-align: center; 
+}
+
+
+.synopsis-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 10px;
+    display: none;
+}
+
+.cart-section {
+    display: none; /* Inicialmente oculto */
+}
+
+.cart-section.visible {
+    display: block; /* Exibido quando a classe "visible" é adicionada */
+}
+
+.cart-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.cart-page h2 {
+    color: white;
+}
+
+.cart-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-page li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.cart-page .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.cart-page .close-button:hover {
+    color: red;
+}

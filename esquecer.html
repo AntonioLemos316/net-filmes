@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Filmes Prime</title>
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperar Senha</h2>
+        <p>Por favor, insira seu endereço de e-mail para recuperar sua senha.</p>
+        <form>
+            <div class="input-container">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <button type="submit" id="btnRecuperar" class="botao-recuperar">Recuperar Senha</button>
+        </form>
+        <p>Voltar para <a href="index.html">página inicial</a>.</p>
+    </div>
+
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function(){
+            var btnCadastrar = document.getElementById("btnRecuperar");
+
+            btnCadastrar.addEventListener("click", function (){
+                window.location.href = "redefinir.html";
+            });
+        });
+
+
+    </script>
+</body>
+</html>

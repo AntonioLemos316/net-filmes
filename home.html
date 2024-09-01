@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
+    <link rel="stylesheet" href="stylehome.css">
+</head>
+
+<body>
+    <nav>
+        <h1 id="saudacao"></h1>
+        <div class="login-links">
+            <!-- Mostrará apenas quando o usuário não estiver logado -->
+            <a href="index.html" id="login-link">Login</a>
+            <a href="cadastro.html" id="signin-link">Sing in</a>
+            <!-- Mostrará apenas quando o usuário estiver logado -->
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+        </div>
+        <div class="cart-icon" id="cart-icon">
+            <h2 onclick="openCartPage()">🛒</h2>
+        </div>
+    </nav>
+
+    <div class="movies-section"> 
+        <h2>AÇÃO</h2>
+        <div class="movie-carousel">
+
+            <div class="movie-card">
+                <img src="./filmes_acao/ateia.jpg" alt="Capa filme A teia">
+                <div class="movie-info">
+                    <p>A teia</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('A teia', '14.95', 'filmes_acao/ateia.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_acao/infiltrado.jpg" alt="Capa filme infiltrado">
+                <div class="movie-info">
+                    <p>Infiltrado</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Infiltrado', '14.95', 'filmes_acao/infiltrado.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_acao/zona_de_risco.jpg" alt="Capa filme zona_de_risco">
+                <div class="movie-info">
+                    <p>Zona de risco</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('zona_de_risco', '14.95', 'filmes_acao/zona_de_risco.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_acao/rambo_ate_o_fim.jpg" alt="Capa filme ate o fim">
+                <div class="movie-info">
+                    <p>Ate o fim</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Ate o fim', '14.95', 'filmes_acao/rambo_ate_o_fim.jpg')">Adicionar ao Carrinho</button>
+                </div>  
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_acao/implacavel.jpg" alt="Capa filme zona_de_risco">
+                <div class="movie-info">
+                    <p>Zona de risco</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Zona de risco', '14.95', 'filmes_acao/zona_de_risco.jpg')">Adicionar ao Carrinho</button>
+                </div>       
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_acao/007.png" alt="Capa filme 007">
+                <div class="movie-info">
+                    <p>007</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('007', '14.95', 'filmes_acao/007.png')">Adicionar ao Carrinho</button>
+                </div>       
+            </div>
+
+        </div>
+    </div>
+
+    <!--FILMES DE COMÉDIA-->
+    <div class="movies-section"> 
+        <h2>COMÉDIA</h2>
+        <div class="movie-carousel">
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/apaixonada.jpg" alt="Capa filme apaixonada">
+                <div class="movie-info">
+                    <p>Apaixonada</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Apaixonada', '14.95', 'filmes_comedia/apaixonada.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/bem_casados.jpg" alt="Capa filme bem_casados">
+                <div class="movie-info">
+                    <p>Bem casados</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Bem casados', '14.95', 'filmes_comedia/bem_casados.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/o_porteiro.jpg" alt="Capa filme o_porteiro">
+                <div class="movie-info">
+                    <p>O porteiro</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('O porteiro', '14.95', 'filmes_comedia/o_porteiro.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/juntos_e_enrolados.jpg" alt="Capa filme juntos_e_enrolados">
+                <div class="movie-info">
+                    <p>Juntos e enrolados</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Juntos e enrolados', '14.95', 'filmes_comedia/juntos_e_enrolados.jpg')">Adicionar ao Carrinho</button>
+                </div>  
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/o_amor_nao_tem_tamanho.jpg" alt="Capa filme o_amor_nao_tem_tamanho">
+                <div class="movie-info">
+                    <p>O amor não tem tamanho</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('O amor não tem tamanho', '14.95', 'filmes_comedia/o_amor_nao_tem_tamanho.jpg')">Adicionar ao Carrinho</button>
+                </div>  
+            </div>
+
+            <div class="movie-card">
+                <img src="./filmes_comedia/chocante.jpg" alt="Capa filme chocante">
+                <div class="movie-info">
+                    <p>Chocante</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Chocante', '14.95', 'filmes_comedia/chocante.jpg')">Adicionar ao Carrinho</button>
+                </div>  
+            </div>
+
+        </div>
+    </div>
+
+       
+ <!--filmes de DRAMA-->
+ <div class="movies-section"> 
+    <h2>Drama</h2>
+        <div class="movie-carousel">
+    
+        <div class="movie-card">
+            <img src="filmes/drama1.png" alt="Capa filme Carol">
+            <div class="movie-info">
+                <p>Carol (2015)</p>
+                <p>R$14,95</p>
+                <button id="btn1" onclick="adicionarAoCarrinho('Carol (2015)', '14.95', 'filmes/drama1.png')">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="movie-card">
+            <img src="filmes/drama2.png" alt="Capa filem Olga">
+            <div class="movie-info">
+                <p>Olga (2004)</p>
+                <p>R$14,95</p>
+                <button id="btn2" onclick="adicionarAoCarrinho('Olga (2004)', '14.95', 'filmes/drama2.png')">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="movie-card">
+            <img src="filmes/drama3.jpg" alt="Capa filme As Vantagens de Ser Invisível">
+            <div class="movie-info">
+                <p>As Vantagens de Ser Invisível</p>
+                <p>R$14,95</p>
+                <button id="btn3" onclick="adicionarAoCarrinho('As Vantagens de Ser Invisível (2012)', '14.95', 'filmes/drama3.jpg')">Adicionar ao Carrinho</button>
+            </div>
+        </div>  
+    </div>
+</div>
+
+<!--FILMES DE TERROR-->
+<div class="movies-section"> 
+<h2>TERROR</h2>
+    <div class="movie-carousel">
+
+    <div class="movie-card">
+        <img src="./capas_terror/a_bruxa_dos_mortos.jpg" alt="Capa filme a_bruxa_dos_mortos">
+            <p>A bruxa dos mortos</p>
+            <p>R$14,95</p>
+            <button id="btn2" onclick="adicionarAoCarrinho('A bruxa dos mortos', '14.95', 'capas_terror/a_bruxa_dos_mortos.jpg')">Adicionar ao Carrinho</button>
+        </div>
+   
+
+        <div class="movie-card">
+            <img src="./capas_terror/brinquedo_assassino.jpg" alt="Capa filme brinquedo_assassino">
+            <div class="movie-info">
+                <p>Brinquedo assassino</p>
+                <p>R$14,95</p>
+                <button id="btn2" onclick="adicionarAoCarrinho('Brinquedo assassino', '14.95', 'capas_terror/brinquedo_assassino.jpg')">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+            <div class="movie-card">
+                <img src="./capas_terror/corra_nao_abra.jpg" alt="Capa filme corra_nao_abra">
+                <div class="movie-info">
+                    <p>Corra não abra</p>
+                    <p>R$14,95</p>
+                    <button id="btn2" onclick="adicionarAoCarrinho('Corra não abra', '14.95', 'capas_terror/corra_nao_abra.jpg')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+  
+
+
+   
+    <div class="movie-card">
+        <img src="./capas_terror/profecia_do_mal.jpg" alt="Capa filme profecia_do_mal">
+        <div class="movie-info">
+            <p>Profecia do mal</p>
+            <p>R$14,95</p>
+            <button id="btn2" onclick="adicionarAoCarrinho('Profecia do mal', '14.95', 'capas_terror/profecia_do_mal.jpg')">Adicionar ao Carrinho</button>
+        </div>  
+    </div>
+
+
+    <div class="movie-card">
+        <img src="./capas_terror/terrifier_2.jpg" alt="Capa filme terrifier_2">
+        <div class="movie-info">
+            <p>Terrifier 2</p>
+            <p>R$14,95</p>
+            <button id="btn2" onclick="adicionarAoCarrinho('Terrifier 2', '14.95', 'capas_terror/terrifier_2.jpg')">Adicionar ao Carrinho</button>
+        </div>  
+    </div>
+
+
+    <div class="movie-card">
+        <img src="./capas_terror/maligno.jpg" alt="Capa filme maligno">
+        <div class="movie-info">
+            <p>Maligno</p>
+            <p>R$14,95</p>
+            <button id="btn2" onclick="adicionarAoCarrinho('Maligno', '14.95', 'capas_terror/maligno.jpg')">Adicionar ao Carrinho</button>
+        </div>  
+    </div>
+
+ 
+
+
+</div>
+
+</div>
+    <!-- Mini página do carrinho -->
+    <div id="cart-page" class="cart-page">
+        <button onclick="closeCartPage()" class="close-button">Fechar</button>
+        <h2>Seu Carrinho</h2>
+        <ul id="cart-items-list"></ul>
+        <span id="total-value"></span>
+        <button onclick="enviarParaWhatsApp()" class="buy-button">Comprar via WhatsApp</button>
+    </div>
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                fetch('http://localhost:3000/rota-protegida', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token // Adiciona o token JWT ao cabeçalho de autorização
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao acessar a página protegida');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.message === 'Token autenticado') {
+                        // Decodifica o token jwt
+                        const decodedToken = jwtDecode(token)
+                        const nomeUsuario = decodedToken.nome
+
+                        // Mostra a saudação com o nome do usuário na página
+                        document.getElementById('saudacao').textContent = "Olá, " + nomeUsuario + "!";
+
+                        // Mostra o link de logout e esconde os de login e cadastro
+                        document.getElementById('logout-link').style.display = 'inline';
+                        document.getElementById('login-link').style.display = 'none';
+                        document.getElementById('signin-link').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('token');
+            // Redireciona o usuário para a página de login
+            window.location.href = 'index.html'; 
+        }
+    </script>
+
+    <script>
+        function adicionarAoCarrinho(nome, preco, imagem) {
+            const imagemPequena = imagem.replace('.png', '-small.png').replace('.jpg', '-small.jpg');
+            const item = {
+                nome: nome,
+                preco: preco,
+                imagem: imagemPequena
+            };
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const filmeJaNoCarrinho = carrinho.some(itemCarrinho => itemCarrinho.nome === nome);
+            if (filmeJaNoCarrinho) {
+                alert('Este filme já está no carrinho!');
+                return;
+            }
+            carrinho.push(item);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            exibirCarrinho();
+        }
+
+        function exibirCarrinho() {
+            const listaCarrinho = document.getElementById('cart-items-list');
+            listaCarrinho.innerHTML = '';
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            let total = 0;
+            carrinho.forEach((item, index) => {
+                total += parseFloat(item.preco);
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${item.nome}</span>
+                    <span>R$ ${item.preco}</span>
+                    <button onclick="removerDoCarrinho(${index})">Remover do Carrinho</button>
+                `;
+                listaCarrinho.appendChild(li);
+            });
+            const totalElement = document.getElementById('total-value');
+            totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function removerDoCarrinho(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            exibirCarrinho();
+        }
+
+        function openCartPage() {
+            document.getElementById('cart-page').style.display = 'block';
+            exibirCarrinho();
+        }
+
+        function closeCartPage() {
+            document.getElementById('cart-page').style.display = 'none';
+        }
+
+        window.onload = exibirCarrinho;
+
+        function enviarParaWhatsApp() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            let mensagem = 'Olá! Gostaria de comprar os seguintes filmes:\n\n';
+            carrinho.forEach(item => {
+                mensagem += `${item.nome} - R$ ${item.preco}\n`;
+            });
+            const mensagemEncoded = encodeURIComponent(mensagem);
+            const numeroWhatsApp = '+5581983454107';
+            const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemEncoded}`;
+            window.location.href = linkWhatsApp;
+        }
+
+
+
+
+
+
+   
+
+
+
+        $(document).ready(function(){
+            $('.movie-carousel').slick({
+                slidesToShow: 5, // Mostrar 5 filmes por slide
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+                nextArrow: '<button type="button" class="slick-next">Next</button>',
+                responsive: [
+                    {
+                        breakpoint: 1200, // Quebra em 1200px
+                        settings: {
+                            slidesToShow: 4 // Mostrar 4 filmes por slide
+                        }
+                    },
+                    {
+                        breakpoint: 992, // Quebra em 992px
+                        settings: {
+                            slidesToShow: 3 // Mostrar 3 filmes por slide
+                        }
+                    },
+                    {
+                        breakpoint: 768, // Quebra em 768px
+                        settings: {
+                            slidesToShow: 2 // Mostrar 2 filmes por slide
+                        }
+                    },
+                    {
+                        breakpoint: 480, // Quebra em 480px
+                        settings: {
+                            slidesToShow: 1 // Mostrar 1 filme por slide
+                        }
+                    }
+                ]
+            });
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

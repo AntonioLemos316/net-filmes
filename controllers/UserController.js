@@ -2,8 +2,10 @@ const userService = require('../services/UserService.js');
 const bcrypt = require('bcrypt')
 
 const createUser = async (req, res) => { 
+    const {senha, email, nome} = req.body
+    
     try { 
-        if(!req.body.senha || !req.body.email || !req.body.nome){ 
+        if(!senha || !email || !nome){ 
             return res.status(400).send({message: 'Forneça todos os dados'})
         }
         const emailExiste = await userService.emailExiste(req.body.email)

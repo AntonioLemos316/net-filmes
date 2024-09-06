@@ -2,10 +2,11 @@
   "name": "net-filmes",
   "version": "1.0.0",
   "description": "Aplicação Full-stack com Node.js, Express, HTML, CSS e MySQL",
-  "main": "app.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon server"
   },
   "keywords": [],
   "author": "Antônio, André, Kauã e Maria Victoria",
